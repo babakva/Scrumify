@@ -1,0 +1,25 @@
+<div id="taskNew">
+
+    <h2>New Task</h2>
+
+    <form>
+
+        <div class="formField">
+            <label for="task.title">Titre</label>
+            <input id="task.title" type="text" ng-model="task.title"/>
+        </div>
+
+        <div class="formField">
+            <label for="task.description">Description</label>
+            <textarea id="task.description" ng-model="task.description">
+            </textarea>
+        </div>
+
+        <hr/>
+
+        <button class="button" ng-click="gotoTaskListPage()">Go Back</button>
+        <button class="button" ng-click="submit()">Save</button>
+
+    </form>
+
+</div>

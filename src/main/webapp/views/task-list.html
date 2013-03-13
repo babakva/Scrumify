@@ -1,0 +1,31 @@
+<div id="taskList">
+
+    <h2>Task List</h2>
+    
+	<form ng-submit="createTask()" name="taskForm">
+		<input type="text" ng-model="task.title" name="title" required size="30" placeholder="add new task here">
+		<input class="button" type="submit" value="add" ng-disabled="tast.$invalid">
+	</form>
+
+    <div class="taskColumn">
+    	<h2>Todo</h2>
+	    <ul>
+	        <li ng-repeat="task in tasks | filter:task.status='TODO'"">
+	            <a href="#/task/{{task.id}}"><span class="taskTitle">{{task.title}}</span></a> :
+	            <button class="button" ng-click="deleteTask(task)">X</button>
+	            <button class="button" ng-click="updateTodoStatus(task)">-></button>
+	        </li>
+	    </ul>    
+    </div>
+
+    <div class="taskColumn">
+        <h2>In Progress</h2>
+	    <ul>
+	        <li ng-repeat="task in tasks | filter:task.status='IN_PROGRESS'"">
+	            <a href="#/task/{{task.id}}"><span class="taskTitle">{{task.title}}</span></a> :
+	            <button class="button" ng-click="deleteTask(task)">X</button>
+	        </li>
+	    </ul>
+	</div>
+
+</div>

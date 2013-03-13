@@ -1,0 +1,17 @@
+<div id="taskList">
+
+    <h2>Task List</h2>
+
+    <ul>
+        <li ng-repeat="task in tasks">
+            <a href="#/task/{{task.id}}"><span class="taskTitle">{{task.title}}</span></a> :
+            <span class="taskDescription">{{task.description | filter:ellipsis:20}}</span> &nbsp;
+            <button class="button" ng-click="deleteTask(task)">X</button>
+        </li>
+    </ul>
+
+    <hr/>
+
+    <button ng-click="gotoTaskNewPage()" class="button">Save</button>
+
+</div>
