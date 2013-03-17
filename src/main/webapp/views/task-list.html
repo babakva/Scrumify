@@ -1,17 +1,16 @@
 <div id="taskList">
-
-    <h2>Task List</h2>
-    
+   
 	<form ng-submit="createTask()" name="taskForm">
-		<input type="text" ng-model="task.title" name="title" required size="30" placeholder="add new task here">
+		<input type="text" required ng-model="task.title" name="title" size="30" placeholder="add new task here">
 		<input class="button" type="submit" value="add" ng-disabled="taskForm.$invalid">
 	</form>
 
     <div class="taskColumn">
-    	<h3>Todo</h3>
+    	<h2>Todo</h2>
 	    <ul>
 	        <li ng-repeat="task in tasks | filter:task.status='TODO'"" class="{{task.type}}">
 	            <a href="#/task/{{task.id}}"><span class="taskTitle">{{task.title}}</span></a>
+	            <br>
 	            <button class="button" ng-click="deleteTask(task)">X</button>
 	            <button class="button" ng-click="upgradeTaskStatus(task)">></button>
 	        </li>
@@ -19,10 +18,11 @@
     </div>
 
     <div class="taskColumn">
-        <h3>In Progress</h3>
+        <h2>In Progress</h2>
 	    <ul>
 	        <li ng-repeat="task in tasks | filter:task.status='IN_PROGRESS'"">
 	            <a href="#/task/{{task.id}}"><span class="taskTitle">{{task.title}}</span></a>
+	            <br>
 	        	<button class="button" ng-click="downgradeTaskStatus(task)"><</button>
 	            <button class="button" ng-click="deleteTask(task)">X</button>
 				<button class="button" ng-click="upgradeTaskStatus(task)">></button>
@@ -31,10 +31,11 @@
 	</div>
 
     <div class="taskColumn">
-        <h3>Verify</h3>
+        <h2>Verify</h2>
 	    <ul>
 	        <li ng-repeat="task in tasks | filter:task.status='TO_VERIFY'"">
 	            <a href="#/task/{{task.id}}"><span class="taskTitle">{{task.title}}</span></a>
+				<br>
 	        	<button class="button" ng-click="downgradeTaskStatus(task)"><</button>
 	            <button class="button" ng-click="deleteTask(task)">X</button>
 				<button class="button" ng-click="upgradeTaskStatus(task)">></button>
@@ -43,10 +44,11 @@
 	</div>
 
     <div class="taskColumn">
-        <h3>Done</h3>
+        <h2>Done</h2>
 	    <ul>
 	        <li ng-repeat="task in tasks | filter:task.status='DONE'"">
 	            <a href="#/task/{{task.id}}"><span class="taskTitle">{{task.title}}</span></a>
+				<br>
 	        	<button class="button" ng-click="downgradeTaskStatus(task)"><</button>
 	            <button class="button" ng-click="deleteTask(task)">X</button>
 	        </li>

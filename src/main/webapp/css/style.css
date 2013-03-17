@@ -29,13 +29,6 @@ form .formField {
     margin-bottom: 1em;
 }
 
-input[type='text'], textarea {
-    width: 460px;
-    line-height: 1.2;
-    padding: 4px;
-    border: solid 1px #CCC;
-}
-
 label {
     display: block;
     font-variant: small-caps;
@@ -125,7 +118,6 @@ ul li{
   color:#000;  
   background:#ffc;  
   display:block;  
-  height:10em;  
   width:10em;  
   padding:1em;  
   /* Firefox */  
