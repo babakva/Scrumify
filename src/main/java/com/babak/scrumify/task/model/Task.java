@@ -7,6 +7,7 @@ public class Task {
 
     private Long id;
     private String title;
+    private String type;
     private TaskStatus status;
 
     public Long getId() {
@@ -31,5 +32,13 @@ public class Task {
 
 	public void setStatus(TaskStatus status) {
 		this.status = status;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 }

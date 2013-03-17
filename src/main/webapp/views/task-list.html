@@ -13,7 +13,7 @@
 	        <li ng-repeat="task in tasks | filter:task.status='TODO'"" class="{{task.type}}">
 	            <a href="#/task/{{task.id}}"><span class="taskTitle">{{task.title}}</span></a>
 	            <button class="button" ng-click="deleteTask(task)">X</button>
-	            <button class="button" ng-click="upgradeTaskStatus(task)">-></button>
+	            <button class="button" ng-click="upgradeTaskStatus(task)">></button>
 	        </li>
 	    </ul>    
     </div>
@@ -22,10 +22,10 @@
         <h3>In Progress</h3>
 	    <ul>
 	        <li ng-repeat="task in tasks | filter:task.status='IN_PROGRESS'"">
-	        	<button class="button" ng-click="downgradeTaskStatus(task)"><</button>
 	            <a href="#/task/{{task.id}}"><span class="taskTitle">{{task.title}}</span></a>
+	        	<button class="button" ng-click="downgradeTaskStatus(task)"><</button>
 	            <button class="button" ng-click="deleteTask(task)">X</button>
-				<button class="button" ng-click="upgradeTaskStatus(task)">-></button>
+				<button class="button" ng-click="upgradeTaskStatus(task)">></button>
 	        </li>
 	    </ul>
 	</div>
@@ -34,8 +34,8 @@
         <h3>Verify</h3>
 	    <ul>
 	        <li ng-repeat="task in tasks | filter:task.status='TO_VERIFY'"">
-	        	<button class="button" ng-click="downgradeTaskStatus(task)"><</button>
 	            <a href="#/task/{{task.id}}"><span class="taskTitle">{{task.title}}</span></a>
+	        	<button class="button" ng-click="downgradeTaskStatus(task)"><</button>
 	            <button class="button" ng-click="deleteTask(task)">X</button>
 				<button class="button" ng-click="upgradeTaskStatus(task)">></button>
 	        </li>
@@ -46,8 +46,8 @@
         <h3>Done</h3>
 	    <ul>
 	        <li ng-repeat="task in tasks | filter:task.status='DONE'"">
-	        	<button class="button" ng-click="downgradeTaskStatus(task)"><</button>
 	            <a href="#/task/{{task.id}}"><span class="taskTitle">{{task.title}}</span></a>
+	        	<button class="button" ng-click="downgradeTaskStatus(task)"><</button>
 	            <button class="button" ng-click="deleteTask(task)">X</button>
 	        </li>
 	    </ul>

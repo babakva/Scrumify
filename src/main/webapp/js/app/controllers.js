@@ -2,7 +2,6 @@
 
 function TaskListController($scope, $location, Task) {
     $scope.tasks = Task.query();
-    $scope.taskTypes = ['Test', 'Support', 'Bug', 'Story'];
 
     $scope.createTask = function () {
     	$scope.task.status = 'TODO';
