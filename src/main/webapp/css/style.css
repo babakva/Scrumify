@@ -26,8 +26,7 @@ h2 {
 }
 
 ul {
-    list-style-type: square;
-    padding: 1em;
+    list-style-type: none;
 }
 
 form .formField {
@@ -110,10 +109,14 @@ body {
 }
 
 .taskColumn {
-	width: 300px;
+	width: 220px;
 	float: left;
 	height: 1px;
     margin: 1em 0;
+}
+
+.Test {
+	color: blue;
 }
 
 

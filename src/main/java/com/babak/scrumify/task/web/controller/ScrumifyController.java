@@ -1,16 +1,22 @@
 package com.babak.scrumify.task.web.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.babak.scrumify.task.model.Task;
-import com.babak.scrumify.task.model.TaskStatus;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentSkipListMap;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author Babak Vahidi
@@ -19,7 +25,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class ScrumifyController {
 
     private static final AtomicLong taskIdGenerator = new AtomicLong(0);
-    private static final ConcurrentSkipListMap<Long, Task> taskRepository = new ConcurrentSkipListMap<Long, Task>();
+    private static final Map<Long, Task> taskRepository = new HashMap<Long, Task>();
 
     @RequestMapping(value = "/task", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody List<Task> list() {
@@ -34,15 +40,22 @@ public class ScrumifyController {
     @RequestMapping(value = "/task", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void create(@RequestBody Task task) {
-    	if(task.getId() != null) {
-            taskRepository.put(task.getId(), task);
-            return;
-    	}
+    	Assert.notNull(task);
+    	Assert.hasText(task.getTitle());
         long id = taskIdGenerator.incrementAndGet();
         task.setId(id);
-        task.setStatus(TaskStatus.TODO);
         taskRepository.put(id, task);
     }
+    
+
+    @RequestMapping(value = "/task/{id}", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateStatus(@PathVariable long id, @RequestBody Task task) {
+    	Assert.notNull(id);
+    	taskRepository.put(id, task);
+    }
+    
+        
 
     @RequestMapping(value = "/task/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)

@@ -11,5 +11,5 @@ public enum TaskStatus {
 	TODO,
 	IN_PROGRESS,
 	TO_VERIFY,
-	Done;
+	DONE;
 }
